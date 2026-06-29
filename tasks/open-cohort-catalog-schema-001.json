@@ -1,0 +1,35 @@
+{
+  "id": "open-cohort-catalog-schema-001",
+  "title": "Canonical cohort metadata schema + access-tier taxonomy + license-rights model",
+  "project": "open-cohort-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "metadata", "public-data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Open cancer cohorts are scattered across GDC, GEO, EMBL-EBI, DepMap, SEER, IARC and more, with inconsistent access terms and heterogeneous licenses, and the open-vs-controlled boundary (e.g. TCGA has both tiers) is routinely misunderstood. Before indexing any cohort, the project needs one canonical metadata schema whose access tier and license-rights breakdown are first-class, required, gate-controlled fields, and which is cohort-level only (no per-patient data). Binding guardrail: index only open-access/aggregate/de-identified cohorts; controlled-access (dbGaP, EGA, biobanks) and any identifiable patient data are out of scope; COSMIC/OncoKB are non-commercial and flagged; every field must be source-cited.",
+  "objective": "Define the canonical cohort metadata schema (JSON Schema + TypeScript types), the access-tier taxonomy (OPEN | OPEN-AGGREGATE | REGISTERED-OPEN | NON-COMMERCIAL | CONTROLLED), and the license-rights model that every per-cohort indexing task will populate.",
+  "acceptanceCriteria": [
+    "JSON Schema + TS types define every required field: id, name, custodian, hostingRepository, cancerTypes[] (OncoTree primary; NCIt/ICD-O-3 cross-refs), population, aggregateCounts (aggregate only), assayTypes[], dataModality[], accessTier, license {id, url, permitsReuse, permitsDerivatives, commercialUseAllowed, redistributionAllowed, attributionRequired, shareAlike, snapshotRef}, accessTerms {registrationRequired, clickThrough, duaRequired, irbRequired, citationRequirement}, deIdentification {level, standard, publisherDocumented, notes}, provenance {sourceUrl, retrievedAt, version, custodianContact, attribution}, fieldProvenance[] {field, claim, sourceUrl, retrievedAt}, governanceFlags[], crossRefs[], completenessScore.",
+    "accessTier is an enum and only OPEN | OPEN-AGGREGATE | REGISTERED-OPEN are valid in a published record; CONTROLLED and NON-COMMERCIAL are rejected by the publish linter.",
+    "Every license rights boolean is required and must reference a fieldProvenance entry; an unverified value is never serialized as true.",
+    "Schema structurally forbids per-patient / row-level / quasi-identifier fields (cohort-level descriptors only) so no identifiable data can ever be represented.",
+    "Mixed-tier resources are representable only for their open tier via a governanceFlags value (mixed-tier-open-portion-only).",
+    "Document and schema are licensed CC-BY-4.0; any committed tooling passes pnpm build && pnpm test && pnpm lint; commit is DCO signed-off."
+  ],
+  "resources": [
+    "C:\\code\\elyos\\planning\\projects\\open-cohort-catalog\\PLAN.md",
+    "C:\\code\\elyos\\planning\\ROADMAP.md",
+    "C:\\code\\elyos\\packages\\schema\\src\\schemas.ts",
+    "NIH Genomic Data Sharing Policy; NCI Genomic Data Commons access tiers",
+    "SPDX license list; OncoTree / NCIt / ICD-O-3 vocabularies; schema.org/Dataset; DCAT"
+  ],
+  "output": "A canonical cohort metadata schema (JSON Schema + TypeScript types) plus the access-tier taxonomy and license-rights model definition, committed to the project repo and ready for reuse by the gate checklist and every per-cohort indexing task.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
