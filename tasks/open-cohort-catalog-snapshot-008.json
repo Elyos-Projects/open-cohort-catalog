@@ -1,0 +1,33 @@
+{
+  "id": "open-cohort-catalog-snapshot-008",
+  "title": "License/terms snapshot capture in the provenance flow",
+  "project": "open-cohort-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Each catalog record must carry a snapshot of the license/terms text at the time of indexing: a committed text copy, a SHA-256 hash, and a Wayback Machine save URL. This makes the provenance basis immutable — a later source change cannot silently rewrite the record's claimed rights. The snapshot must be captured as part of the per-cohort authoring flow (gate-003) and stored such that the drift-detection tool (drift-017) can later re-check and flag changes. The snapshot tooling should also record the content hash of each source terms URL for drift detection. Depends on schema-001 (defines the snapshotRef field) and gate-003 (defines when the snapshot is taken).",
+  "objective": "Build a utility that, for a given terms URL, fetches the text, stores it as a committed snapshot file, computes SHA-256, requests a Wayback save URL, and records the content hash; integrating into the provenance flow so every published record's license provenance is immutable and machine-checkable by the drift-detection tool.",
+  "acceptanceCriteria": [
+    "A utility script/function captures a license/terms snapshot: fetches the terms URL, stores the text as a committed file (e.g. snapshots/<cohort-id>-<date>-license.txt), computes and records SHA-256, and requests a Wayback Machine save (returning the save URL).",
+    "The snapshotRef field in the record license object is populated with: the committed snapshot file path, SHA-256 hash, Wayback save URL, and retrieval date.",
+    "A content hash of the terms URL response is computed and stored per record for use by drift-017 (termsUrlContentHash field or equivalent in a companion metadata file).",
+    "The utility integrates into the provenance flow documented by gate-003 so it can be called during per-cohort authoring.",
+    "No credentials or API tokens are written to logs, committed files, or receipts; if the Wayback API requires a key it is injected via environment variable only.",
+    "pnpm build && pnpm test && pnpm lint green; MIT-licensed; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog-gate-003",
+    "Wayback Machine Save API (https://archive.org/help/wayback_api.php)"
+  ],
+  "output": "A committed utility (MIT) for capturing and storing license/terms snapshots (text + SHA-256 + Wayback URL + content hash) integrated into the provenance flow, with CI tests.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

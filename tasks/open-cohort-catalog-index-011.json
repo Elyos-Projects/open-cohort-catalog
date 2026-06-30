@@ -1,0 +1,35 @@
+{
+  "id": "open-cohort-catalog-index-011",
+  "title": "Index cohort set #2 — GEO + EMBL-EBI (Expression Atlas / PRIDE)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "NCBI GEO (Gene Expression Omnibus) and EMBL-EBI resources (Expression Atlas CC-BY-4.0, PRIDE open/commonly-CC0, ArrayExpress/BioStudies) host large sets of open cancer expression and proteomics datasets. GEO submitter-deposited data are generally reusable but must be verified per series for any stated restriction. Expression Atlas is CC-BY-4.0; PRIDE is commonly CC0 but varies per study. Each series/study is a distinct molecular-dataset entryType record (not patient-cohort). The cross-repository identity rule applies: if a GEO series is mirrored in Expression Atlas or BioStudies, it is one record with multiple hostingLocations[]. Each record requires gate-003 applied, per-series license verification, and fieldProvenance on every field. Depends on pilot-007 and triage-009.",
+  "objective": "Index a set of open cancer-relevant GEO series and EMBL-EBI studies (Expression Atlas, PRIDE) as canonical records with per-series license verification, per-record gate artifacts, entryType correctly set (molecular-dataset or patient-cohort), cross-repository dedup applied, and fully cited fields — contributing ≥ 3 repositories to the M1 coverage target.",
+  "acceptanceCriteria": [
+    "A set of open cancer-relevant GEO series and EMBL-EBI studies (Expression Atlas, PRIDE) are indexed with one canonical record per distinct dataset (deduped via identity rule when a series appears in multiple portals).",
+    "Each record has entryType: molecular-dataset (or patient-cohort where the resource is a cohort-level patient study) with aggregateCounts shape matching entryType.",
+    "Each record is gate-passed with a committed gates/<cohort-id>.json artifact recording access tier (OPEN), license id and rights booleans cited from primary source text, and PII check.",
+    "License verification is per-series (not assumed from the repository default): GEO submitter restrictions noted; Expression Atlas CC-BY-4.0 cited; PRIDE per-study terms verified.",
+    "Every record field has a fieldProvenance citation; completeness score ≥ 90/100.",
+    "Cancer types coded (OncoTree primary + NCIt/ICD-O-3 cross-refs) where applicable; oncology-data reviewer signs off.",
+    "License snapshots recorded; records pass schema validator and citation resolver; CI green; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-pilot-007",
+    "open-cohort-catalog-triage-009",
+    "NCBI GEO terms (https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html)",
+    "Expression Atlas terms (CC-BY-4.0); PRIDE terms; ArrayExpress/BioStudies terms"
+  ],
+  "output": "Committed catalog records (catalog/*.json) for open cancer GEO series and EMBL-EBI studies with gate artifacts, fully cited, schema-valid, CI-green, licensed CC-BY-4.0.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

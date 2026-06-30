@@ -1,0 +1,32 @@
+{
+  "id": "open-cohort-catalog-dcat-024",
+  "title": "DCAT / schema.org Dataset export of the catalog",
+  "project": "open-cohort-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "To make the catalog discoverable by dataset-discovery ecosystems (Google Dataset Search, OpenAIRE, etc.), each catalog record should emit a schema.org/Dataset + DCAT JSON-LD representation. This turns the catalog's machine-readable JSON records into interoperable artifacts that can be indexed by existing discovery infrastructure. The DCAT/schema.org export must map the catalog's access-tier taxonomy and license-rights breakdown into the equivalent DCAT/DCTERMS fields, preserving the access-tier signals rather than losing them in a lowest-common-denominator serialization. The export must contain only cohort-level metadata (no patient data). MIT-licensed code.",
+  "objective": "Build a build-time utility that generates schema.org/Dataset + DCAT JSON-LD representations of each catalog record — mapping access tier, license rights, and provenance to standard DCAT/DCTERMS fields — so the catalog is discoverable by Google Dataset Search and similar dataset-discovery ecosystems without exposing patient data.",
+  "acceptanceCriteria": [
+    "A utility script generates schema.org/Dataset + DCAT JSON-LD for each catalog record, mapping: id, name, custodian, hostingLocations, cancerTypes, accessTier (to DCAT accrualPolicy or dcterms:accessRights), license (to schema:license and dcterms:rights), provenance (to dcterms:provenance), and the catalog's custom fields as extension properties.",
+    "The DCAT/JSON-LD output preserves the access-tier signal (OPEN, OPEN-AGGREGATE, REGISTERED-OPEN) in a standard field that Google Dataset Search and similar tools can consume.",
+    "The export is generated at build time and committed alongside the catalog records; it contains only cohort-level metadata (no patient data, no per-patient rows).",
+    "pnpm build && pnpm test && pnpm lint green; MIT-licensed; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "schema.org/Dataset (https://schema.org/Dataset)",
+    "DCAT 3 (https://www.w3.org/TR/vocab-dcat-3/)",
+    "open-cohort-catalog PLAN.md §6 (DCAT/schema.org cross-walk)"
+  ],
+  "output": "A committed utility (MIT) that generates schema.org/Dataset + DCAT JSON-LD for each catalog record, built into CI so interop representations are always current.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

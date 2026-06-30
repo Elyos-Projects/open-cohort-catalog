@@ -1,0 +1,34 @@
+{
+  "id": "open-cohort-catalog-ci-linter-014",
+  "title": "CI publish-gate linter (no CONTROLLED/NC; rights cited; tier-consistent)",
+  "project": "open-cohort-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The CI publish-gate linter is the automated enforcement layer that blocks any record violating the access-tier rules from being merged into the catalog. It is distinct from the schema validator (validator-004): where the validator checks structural validity, this linter checks semantic business rules. Key rules: CONTROLLED and NON-COMMERCIAL accessTier values must never appear in a published record (unless a governance-decision reference per policy-nc-034 is attached); every rights boolean must have a fieldProvenance entry; OPEN-tier records may not carry duaRequired:true; dead/unresolvable citations fail. Critically, the linter must NOT reject a record for license.redistributionAllowed:false — index != redistribute; GENIE is a valid REGISTERED-OPEN index entry. Depends on schema-001 and validator-004.",
+  "objective": "Implement a CI publish-gate linter that blocks merging of any catalog record with CONTROLLED/NON-COMMERCIAL access tiers, uncited rights booleans, or OPEN records with duaRequired:true — while correctly passing REGISTERED-OPEN records with redistributionAllowed:false — with synthetic golden fixtures proving each rule.",
+  "acceptanceCriteria": [
+    "CI blocks merge of any catalog record with accessTier: CONTROLLED or accessTier: NON-COMMERCIAL, unless a governance-decision reference is attached (per policy-nc-034); the block error message names the specific violation.",
+    "CI blocks merge of any record with a rights boolean (permitsReuse, permitsDerivatives, commercialUseAllowed, redistributionAllowed, attributionRequired, shareAlike) lacking a fieldProvenance entry.",
+    "CI blocks merge of any OPEN-tier record with accessTerms.duaRequired: true.",
+    "CI blocks merge of any record with an unresolvable fieldProvenance.sourceUrl or license.url (mocked in CI to avoid network calls in the test suite).",
+    "CI does NOT reject a record for license.redistributionAllowed: false; a golden fixture asserts a REGISTERED-OPEN record (e.g. GENIE-like) with redistributionAllowed:false passes the linter.",
+    "All access-tier consistency rules are encoded as tests with synthetic fixtures (no real cohort data); pnpm build && pnpm test && pnpm lint green; MIT-licensed; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog-validator-004",
+    "open-cohort-catalog-policy-nc-034",
+    "open-cohort-catalog PLAN.md §8 (CI publish gate)"
+  ],
+  "output": "A committed CI publish-gate linter (MIT) that blocks access-tier, rights-citation, and tier-consistency violations while correctly allowing redistributionAllowed:false records, with synthetic golden fixtures and CI integration.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

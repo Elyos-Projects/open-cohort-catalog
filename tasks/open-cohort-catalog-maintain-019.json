@@ -1,0 +1,31 @@
+{
+  "id": "open-cohort-catalog-maintain-019",
+  "title": "Refresh/maintenance process + steward handover",
+  "project": "open-cohort-catalog",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "governance", "community"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Once the catalog has a body of published records, it needs a documented refresh and maintenance process so it does not become stale after the initial contributors move on. The process covers: how often records are re-validated (freshness SLA), who is responsible (Maintainer and Steward), what triggers a re-verification (drift-017 detection of changed terms, or the scheduled refresh window expiring), how a new cohort is nominated and triaged, and how stewardship is handed over if the current Steward is no longer available. Depends on drift-017 (the technical drift detection is in place before the process is documented).",
+  "objective": "Document the catalog's refresh/maintenance process (freshness SLA, re-verification triggers, new cohort nomination workflow) and the steward handover procedure, ensuring the catalog can be maintained after the initial contributors move on without silently going stale.",
+  "acceptanceCriteria": [
+    "A committed maintenance process document (e.g. MAINTENANCE.md) covers: freshness SLA per source class (annual, or on drift signal), who re-verifies (Maintainer + Access/License/PII reviewer), how a re-verification is triggered (drift-017 flag or scheduled), how new cohort nominations are accepted (community PR + gate-003).",
+    "The document defines the Steward handover process: what artifacts must be transferred, what commitments must be re-confirmed, and how the new Steward is recorded in GOVERNANCE.md or equivalent.",
+    "The document defines the escalation path if no Steward is available (indexing halts; records are not silently deprecated without human decision).",
+    "The process is consistent with drift-017 outputs (termsChangedSinceSnapshot triggers a human re-verification, not an automated update).",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-drift-017",
+    "open-cohort-catalog PLAN.md §15 (sustainability & maintenance)"
+  ],
+  "output": "A committed MAINTENANCE.md (or equivalent) documenting the refresh process, freshness SLAs, re-verification triggers, new cohort nomination workflow, and steward handover process.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

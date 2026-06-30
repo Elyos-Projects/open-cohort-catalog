@@ -1,0 +1,37 @@
+{
+  "id": "open-cohort-catalog-pilot-007",
+  "title": "End-to-end index one pilot open cohort (DepMap or GDC open-tier TCGA)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The M0 exit criterion requires one pilot cohort fully indexed end-to-end: gate-passed, fully cited, schema-valid, CI-green. The pilot must be a clearly-open, no-patient-data resource — either DepMap (CC-BY-4.0, entryType:cell-model-collection) or a GDC open-tier TCGA descriptor — so a real verifiable record is reachable without a third-party dependency. This is the proof-of-concept that the schema, gate, and validator work together. The deliverable is catalog metadata (never the cohort data itself). Depends on: schema-001, gate-003, validator-004, reviewer-002 (the reviewer must be named before this is reviewed).",
+  "objective": "Prove the end-to-end pipeline (schema → gate → validator → record) by indexing one clearly-open, no-patient-data pilot cohort (DepMap CC-BY-4.0 or GDC open-tier TCGA descriptor) with a gate-passed artifact, fully cited fields, completeness score ≥ 90/100, and CI-green schema validation.",
+  "acceptanceCriteria": [
+    "Pilot cohort is a clearly-open, no-patient-data resource: either DepMap (CC-BY-4.0, cell-model-collection) or a GDC open-tier TCGA descriptor; the choice is recorded with rationale.",
+    "The cohort passed gate-003 (access tier OPEN or OPEN-AGGREGATE; license permits reuse + derivative metadata; no identifiable/controlled data); the committed gate artifact (gates/<cohort-id>.json) records PASS with the access-tier classification, license rights booleans with cited clauses, and PII check result.",
+    "A complete canonical record is authored, every field populated with a fieldProvenance citation (source URL, retrieval date, and the specific claim); completeness score ≥ 90/100.",
+    "License snapshot recorded: committed text copy + SHA-256 + Wayback save URL of the license/terms as retrieved.",
+    "entryType is correctly set (cell-model-collection for DepMap; patient-cohort for TCGA open-tier descriptor) and aggregateCounts shape matches entryType.",
+    "identityKeys are set (primaryCustodian, programOrAccession, generationScope) per the cross-repository dedup rule; hostingLocations[] lists all known portal appearances.",
+    "Record passes schema validator and citation resolver; CI green.",
+    "Deliverable is catalog metadata (record JSON + gate artifact), never the cohort data; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog-gate-003",
+    "open-cohort-catalog-validator-004",
+    "DepMap release notes and CC-BY-4.0 license (https://depmap.org/portal/)",
+    "GDC data access tiers (https://gdc.cancer.gov/access-data/data-access-processes-and-tools)"
+  ],
+  "output": "A committed catalog record (catalog/<cohort-id>.json) for the pilot cohort, fully cited and gate-passed (with gates/<cohort-id>.json), schema-valid and CI-green, licensed CC-BY-4.0, proving the end-to-end pipeline works.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

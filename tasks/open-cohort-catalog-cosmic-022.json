@@ -1,0 +1,31 @@
+{
+  "id": "open-cohort-catalog-cosmic-022",
+  "title": "COSMIC disposition record (NON-COMMERCIAL flag per policy-nc-034)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "metadata", "licensing"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "COSMIC (Catalogue Of Somatic Mutations In Cancer, Wellcome Sanger Institute) is a major cancer mutation resource but carries non-commercial terms: free for non-commercial use with registration; commercial use requires a paid license; redistribution is restricted. Under policy-nc-034, COSMIC is flagged NON-COMMERCIAL and must not be auto-included. This task creates a disposition record for COSMIC: not a full catalog record (it cannot be indexed as a standard record), but a documented disposition explaining the access tier, the NC terms, the policy-nc-034 governance decision applied, and where researchers should go to access COSMIC legitimately. This disposition record is a document, not a dataset.",
+  "objective": "Produce a committed COSMIC disposition document applying the policy-nc-034 governance decision (include-with-flag vs pointer-only), citing the COSMIC license terms, specifying the NON-COMMERCIAL badge and governanceFlags value, and recording the correct researcher access path for non-commercial and commercial use.",
+  "acceptanceCriteria": [
+    "A committed COSMIC disposition document (e.g. dispositions/cosmic.md or a record in the excluded/flagged register) records: resource name, custodian (Wellcome Sanger Institute), access tier (NON-COMMERCIAL), license terms summary with cited source (COSMIC license page), the policy-nc-034 governance decision applied, and the outcome (pointer-only or include-with-flag per the decided policy).",
+    "The document states the correct access path for researchers who need COSMIC: the registration URL for non-commercial use and the commercial licensing contact.",
+    "If policy-nc-034 decides 'pointer-only,' the document is a register entry only (no record in catalog/); if policy-nc-034 decides 'include-with-prominent-NON-COMMERCIAL-flag,' a record with accessTier:NON-COMMERCIAL and governanceFlags:['nc-license'] and a governance-decision reference is created.",
+    "The governanceFlags value and NON-COMMERCIAL badge value from policy-nc-034 are used consistently.",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-policy-nc-034",
+    "COSMIC license (https://cancer.sanger.ac.uk/cosmic/license)"
+  ],
+  "output": "A committed COSMIC disposition document applying the policy-nc-034 governance decision, recording access tier, terms, and the correct researcher access path.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

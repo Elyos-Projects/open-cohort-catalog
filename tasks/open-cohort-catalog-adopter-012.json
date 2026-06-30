@@ -1,0 +1,30 @@
+{
+  "id": "open-cohort-catalog-adopter-012",
+  "title": "Secure first confirmed adopter/steward",
+  "project": "open-cohort-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "community", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The project's 'delivered' condition requires a named beneficiary who adopts or stewards the catalog. Without a confirmed adopter, all tasks carry verifiedNeed:false, which prevents any task from counting as truly delivered. This task converts the outreach threads opened in outreach-006 into a confirmed adopter or steward: a named research group, advocacy org, or repository that commits to using, hosting, or stewarding the catalog. On confirmation, the requestor field and verifiedNeed status can be updated for relevant tasks. The contribution or hosting mechanism must be documented. Depends on outreach-006.",
+  "objective": "Convert one or more outreach threads (outreach-006) into a written commitment from a named research group, advocacy org, or repository to use, host, or steward the catalog, and document the confirmed adopter, their role, and the contribution/hosting mechanism in a committed governance artifact.",
+  "acceptanceCriteria": [
+    "A named research group, advocacy organization, or repository confirms in writing that it will use, host, or steward the catalog; the confirmation is documented (email, GitHub issue, letter of intent, or equivalent) and committed as evidence.",
+    "The adopter/steward's name, organization type, role (user/host/steward), and contribution or hosting mechanism are documented in a committed STEWARD.md or equivalent.",
+    "The adoption/stewardship mechanism is described: how the catalog will be hosted or cross-linked, how contributions will flow, who owns the outcome ledger.",
+    "Once secured, the requestor field and verifiedNeed field on delivery-dependent tasks are updated to reflect the confirmed adopter.",
+    "Output document is CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-outreach-006 (outreach log and candidate contacts)"
+  ],
+  "output": "A committed STEWARD.md (or equivalent) documenting the confirmed adopter/steward, their commitment, and the contribution/hosting mechanism, enabling verifiedNeed:true on delivery-dependent tasks.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

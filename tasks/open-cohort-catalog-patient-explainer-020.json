@@ -1,0 +1,33 @@
+{
+  "id": "open-cohort-catalog-patient-explainer-020",
+  "title": "Education-only 'how to read this catalog / access tiers' explainer (HIGH RISK)",
+  "project": "open-cohort-catalog",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "health-education", "patient-advocacy", "open-science"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Informed patients, patient advocates, and non-specialist users benefit from a plain-language explanation of what 'open cohort,' 'access tier,' 'de-identified,' and 'license' mean in the context of this catalog. This is education only — it explains the catalog's concepts, not cancer treatment or clinical outcomes. Because the content is patient-facing and health-adjacent, it is classified as HIGH RISK and requires BOTH an oncologist AND a patient advocate to review and sign off before publication. The 'not medical advice' notice must appear on every page. If either reviewer is not secured, this task is deferred and not shipped. This task must not be started until adopter-012 is confirmed. The task must never ship without both reviewer sign-offs on file.",
+  "objective": "Write an education-only plain-language explainer for patients and advocates covering what 'open cohort,' 'access tier,' 'de-identified,' and 'license' mean — with explicit 'not medical advice' notices — and obtain committed sign-offs from both an oncologist and a patient advocate before publication; defer explicitly if either reviewer is not secured.",
+  "acceptanceCriteria": [
+    "Content is education-only: explains what 'open cohort,' 'access tier' (OPEN/OPEN-AGGREGATE/REGISTERED-OPEN), 'de-identified,' and 'license' mean in plain language; contains no medical advice, prognosis, treatment guidance, or clinical interpretation.",
+    "Every page/section carries an explicit 'This is not medical advice' notice in a prominent position.",
+    "Both an oncologist AND a patient advocate review and sign off before publication; both sign-offs are recorded in a committed sign-off artifact (e.g. signoffs/patient-explainer-020.md) naming the reviewers, their credentials/role, and the date of sign-off.",
+    "If either reviewer is not secured, the task is explicitly deferred (a committed 'deferred-pending-reviewers.md' artifact records the reason) rather than shipped without full sign-off.",
+    "The explainer does not introduce new access-tier or license claims; it explains only what is already in the catalog record schema (schema-001) and the gate (gate-003).",
+    "riskTier: high; outputLicense: CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-adopter-012",
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog PLAN.md §8 (high-risk gate: oncologist + patient-advocate)"
+  ],
+  "output": "A committed education-only explainer document (CC-BY-4.0) explaining catalog concepts in plain language for patients/advocates, with 'not medical advice' notices and committed sign-off artifacts from both an oncologist and a patient advocate.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

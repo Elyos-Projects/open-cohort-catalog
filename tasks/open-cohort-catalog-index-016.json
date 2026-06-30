@@ -1,0 +1,36 @@
+{
+  "id": "open-cohort-catalog-index-016",
+  "title": "Index cohort set #4 — aggregate stats (SEER*Explorer, GLOBOCAN, CDC WONDER)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Aggregate cancer incidence, mortality, and outcome statistics are a distinct entry type from patient cohorts. SEER*Explorer (NCI), GLOBOCAN (IARC/WHO), and CDC WONDER are the primary sources. These are indexed as entryType:population-statistics with accessTier:OPEN-AGGREGATE. Key guardrails: SEER research microdata (which requires a signed agreement) is CONTROLLED and out of scope — only the SEER*Explorer open aggregate layer is indexed. GLOBOCAN/IARC is NOT simply open: it carries attribution requirements and use conditions that must be verified, not assumed. CDC WONDER is US government public domain. Each source requires gate-003 applied and license/terms verified from primary source text. Depends on triage-009 and ci-linter-014.",
+  "objective": "Index SEER*Explorer open aggregate, GLOBOCAN, and CDC WONDER as entryType:population-statistics records with accessTier:OPEN-AGGREGATE, terms verified from primary source text (not assumed), SEER research microdata explicitly excluded, and GLOBOCAN attribution requirements cited — with gate artifacts, CI green, and fully cited fields.",
+  "acceptanceCriteria": [
+    "Each aggregate stats source (SEER*Explorer open aggregate, GLOBOCAN, CDC WONDER) is indexed as entryType:population-statistics; aggregateCounts shape uses statisticalUniverse (not patients or cellLines).",
+    "accessTier:OPEN-AGGREGATE for all three sources; this is verified from primary source text, not assumed.",
+    "GLOBOCAN/IARC terms are verified from the GLOBOCAN/Cancer-Today terms page (attribution requirements and use conditions noted and cited); not assumed to be open.",
+    "SEER research microdata is explicitly EXCLUDED (signed agreement / controlled) and noted in the SEER record as out of scope with a pointer to the exclusion register; only the SEER*Explorer open aggregate is indexed.",
+    "CDC WONDER is confirmed US-government public domain; cited from primary source.",
+    "Each record gate-passed (gate-003 artifact committed); every field has fieldProvenance; completeness score ≥ 90/100.",
+    "License snapshots recorded; CI green (ci-linter-014 passing); outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-triage-009",
+    "open-cohort-catalog-ci-linter-014",
+    "SEER*Explorer (https://seer.cancer.gov/explorer/); SEER terms (https://seer.cancer.gov/about/)",
+    "GLOBOCAN / IARC Cancer Today terms (https://gco.iarc.fr/)",
+    "CDC WONDER (https://wonder.cdc.gov/); CDC data use policies"
+  ],
+  "output": "Committed catalog records (catalog/*.json) for SEER*Explorer open aggregate, GLOBOCAN, and CDC WONDER as population-statistics entries with gate artifacts, fully cited, schema-valid, CI-green, licensed CC-BY-4.0.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

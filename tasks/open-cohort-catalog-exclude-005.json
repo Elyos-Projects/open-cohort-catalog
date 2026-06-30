@@ -1,0 +1,32 @@
+{
+  "id": "open-cohort-catalog-exclude-005",
+  "title": "Seed the excluded-resources register (dbGaP/EGA/biobanks, pointer-only)",
+  "project": "open-cohort-catalog",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Controlled-access and identifiable resources must never appear as catalog records; however, users should not be misled into thinking these resources are unavailable. The project's design calls for an excluded-resources register: a short, explicit list of controlled/identifiable resources recorded only as 'excluded — controlled, contact custodian' pointers, with the exact application path so users know how to request access legitimately. The register must be seeded before the M0 pilot so the gate (gate-003) has a documented reference for the excluded set. The register must include at minimum: dbGaP controlled studies, EGA studies, TCGA/ICGC controlled tiers (including germline + raw sequence/BAMs), GTEx, TOPMed, and individual-level biobanks (UK Biobank, Genomics England, All of Us, MVP). Depends on gate-003 for the policy framing.",
+  "objective": "Create and commit the excluded-resources register seeding the known set of controlled/identifiable resources (dbGaP, EGA, TCGA/ICGC controlled tiers, GTEx, TOPMed, UK Biobank, Genomics England, All of Us, MVP) as pointer-only entries with application paths, so users are warned rather than misled and the gate has a reference for the excluded set.",
+  "acceptanceCriteria": [
+    "A committed excluded-resources register (e.g. EXCLUDED.md or excluded-resources.json) lists every initially-known controlled/identifiable resource as a pointer entry: resource name, custodian, why excluded (controlled tier / identifiable / DUA-required), and the application/access path for legitimate use.",
+    "Register includes at minimum: dbGaP (NCBI controlled studies), EGA (EMBL-EBI controlled), TCGA controlled tier (dbGaP DAR; germline + raw BAMs explicitly noted), ICGC controlled tier, GTEx, TOPMed, UK Biobank, Genomics England, All of Us, MVP.",
+    "No record-level metadata is extracted for any excluded resource; the register entry is a pointer only (no cohort counts, no field values, no license breakdown for the controlled resource itself).",
+    "Each pointer entry states the correct application path (e.g. dbGaP authorized access, EGA access committee) so users are not simply told 'excluded' with no path forward.",
+    "Register design makes clear that a future resource may move from excluded to indexed only if the gate confirms an open-access tier exists (e.g. a mixed-tier resource like TCGA has its open tier indexed separately).",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog PLAN.md §7 (excluded sources)",
+    "open-cohort-catalog-gate-003"
+  ],
+  "output": "A committed excluded-resources register (document format) listing controlled/identifiable resources as pointer-only entries with application paths, seeding the known excluded set for the gate and for user guidance.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

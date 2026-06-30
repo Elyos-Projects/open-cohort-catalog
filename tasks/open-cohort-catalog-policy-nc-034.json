@@ -1,0 +1,34 @@
+{
+  "id": "open-cohort-catalog-policy-nc-034",
+  "title": "Non-commercial/custom-license acceptance policy (COSMIC/OncoKB)",
+  "project": "open-cohort-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "licensing", "governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "COSMIC (Wellcome Sanger Institute) and OncoKB (MSK) are widely used cancer genomics resources but carry non-commercial/custom-restrictive terms: COSMIC is free for non-commercial use with registration but commercial use requires a paid license and redistribution is restricted; OncoKB has an academic/research license with commercial and redistribution restrictions. The default project stance is FLAG → governance decision (not auto-include, not auto-exclude). This policy must be decided and merged before triage-009 runs, so triage applies a fixed, recorded rule rather than ad-hoc judgment. The policy also defines the NON-COMMERCIAL badge and governanceFlags value used in records. Depends on gate-003.",
+  "objective": "Record a written, dated governance decision for COSMIC and OncoKB (include-with-prominent-NON-COMMERCIAL-flag vs pointer-only), specify the NON-COMMERCIAL badge text and governanceFlags value, and set the default rule for any future NC/custom-license source — so triage-009 applies a fixed policy rather than ad-hoc judgment.",
+  "acceptanceCriteria": [
+    "A written policy document records the governance decision for COSMIC and OncoKB: include-with-prominent-flag vs pointer-only, with rationale and a recorded decision date and decision-maker.",
+    "The policy specifies: the NON-COMMERCIAL UI badge text and style; the governanceFlags value (e.g. 'nc-license') applied to any record admitted under this policy; and the accessTier value (NON-COMMERCIAL) used.",
+    "The policy specifies the conditions under which a NON-COMMERCIAL source may be admitted (e.g. only if a governance decision reference is attached, per the CI linter rule in ci-linter-014).",
+    "The policy states the default for any future NC/custom-license source not yet covered: FLAG → governance decision, never default-include.",
+    "The policy must be merged before triage-009 begins so triage applies a fixed rule; the dependency is explicitly recorded in this document.",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog PLAN.md §7 (flagged sources: COSMIC, OncoKB)",
+    "open-cohort-catalog-gate-003",
+    "COSMIC license (https://cancer.sanger.ac.uk/cosmic/license)",
+    "OncoKB terms of use (https://www.oncokb.org/terms)"
+  ],
+  "output": "A committed policy document (e.g. policy-nc-034.md) recording the governance decision for COSMIC and OncoKB (include-with-flag vs pointer-only), specifying the NON-COMMERCIAL badge and governanceFlags value, and setting the default for future NC/custom-license sources.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
