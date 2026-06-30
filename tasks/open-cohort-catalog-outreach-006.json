@@ -1,0 +1,27 @@
+{
+  "id": "open-cohort-catalog-outreach-006",
+  "title": "Adopter/steward outreach + candidate cohort shortlist",
+  "project": "open-cohort-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "public-data", "community"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The project's 'delivered' condition requires a named beneficiary who adopts or stewards the catalog — producing records is not shipped without beneficiary use. Until a named research group, advocacy org, or repository confirms it will use or host the catalog, all tasks carry verifiedNeed:false. This task opens at least one outreach thread toward a potential adopter or steward. Candidate channels: an academic cancer bioinformatics group; a rare-cancer foundation or patient-advocacy data initiative; an existing open-science indexing effort willing to cross-link; a cancer data commons community. The task also produces a candidate cohort shortlist (the initial COHORT-CATALOG.md or equivalent) to feed M1 indexing tasks.",
+  "objective": "Open ≥ 1 documented outreach thread toward a named potential adopter/steward for the catalog, and produce a candidate cohort shortlist (≥ 15 entries with first-pass access-tier signals) from the known seed sources to feed M1 triage and indexing tasks.",
+  "acceptanceCriteria": [
+    "At least one outreach thread is opened toward a named candidate adopter/steward (not anonymous or hypothetical); the thread is documented with the organization, contact channel, date, and the ask (adopt/host/steward/cross-link).",
+    "A candidate cohort shortlist (COHORT-CATALOG.md or equivalent) is committed listing ≥ 15 candidate cohorts from the seed sources (GDC open tier, GEO, EMBL-EBI, DepMap, cBioPortal public studies, SEER aggregate, GLOBOCAN, GENIE) with a first-pass license/access-tier signal for each.",
+    "Each shortlist entry notes: cohort name, hosting repository, entryType (patient-cohort/population-statistics/cell-model-collection/molecular-dataset), estimated access tier, known license or NC/custom concern, and any dedup note (e.g. 'also in cBioPortal — apply identity rule').",
+    "The shortlist explicitly flags COSMIC and OncoKB as NON-COMMERCIAL → policy-nc-034, and any controlled-access candidates as EXCLUDE → excluded-resources register.",
+    "Output document is licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "output": "A committed outreach-log document (recording ≥ 1 adopter/steward contact thread) plus a candidate cohort shortlist (COHORT-CATALOG.md or equivalent) with ≥ 15 entries and first-pass access-tier signals, ready to feed triage-009 and the M1 indexing tasks.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

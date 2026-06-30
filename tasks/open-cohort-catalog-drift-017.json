@@ -1,0 +1,33 @@
+{
+  "id": "open-cohort-catalog-drift-017",
+  "title": "Staleness/drift detection + freshness SLA",
+  "project": "open-cohort-catalog",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Source license/terms can change after indexing, silently invalidating a record's rights booleans. Because most sources have no machine-readable terms feed, drift is detected by storing a content hash of each record's terms URL at indexing time (snapshot-008) and re-checking it on a freshness SLA. A changed hash flips the record to the first-class recordState:termsChangedSinceSnapshot (not merely a maintenance ticket) and routes it to human re-verification. Every published record carries a freeze date and a refresh window. This is a first-class record state (schema-001) — not a background job — so users see the record is under re-verification. Depends on validator-004 and snapshot-008.",
+  "objective": "Build a drift-detection utility that re-fetches each record's terms URL, compares the content hash to the stored snapshot-008 hash, flips the record's recordState to termsChangedSinceSnapshot on change, and flags records that have exceeded their freshness SLA — ensuring human re-verification is triggered rather than silent staleness.",
+  "acceptanceCriteria": [
+    "A script/service re-fetches each record's terms URL, computes the content hash, and compares to the stored termsUrlContentHash from snapshot-008; a changed hash triggers the state transition.",
+    "On hash change, the record's recordState field is flipped to termsChangedSinceSnapshot (the first-class schema-001 state); the record is flagged for human re-verification in a committed artifact or issue.",
+    "Every published record carries a freeze date (the date of snapshot capture) and a refresh window (e.g. annual or per-source SLA); the script checks records past their refresh window and flags them as overdue.",
+    "The recordState:termsChangedSinceSnapshot flip is a human-reviewable, committed change — not a silent background mutation; it triggers the Access/License/PII reviewer workflow.",
+    "The tooling runs in CI or on-demand (not a persistent service); no credentials written to logs or committed files; MIT-licensed.",
+    "pnpm build && pnpm test && pnpm lint green; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-validator-004",
+    "open-cohort-catalog-snapshot-008",
+    "open-cohort-catalog PLAN.md §15 (sustainability & maintenance; drift detection)"
+  ],
+  "output": "A committed drift-detection utility (MIT) that re-checks terms-URL content hashes against stored snapshots, flips records to recordState:termsChangedSinceSnapshot on change, and flags overdue freshness SLAs, integrated into CI.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

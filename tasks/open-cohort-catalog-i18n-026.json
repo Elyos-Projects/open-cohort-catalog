@@ -1,0 +1,30 @@
+{
+  "id": "open-cohort-catalog-i18n-026",
+  "title": "Translate the patient explainer (after high-risk sign-off)",
+  "project": "open-cohort-catalog",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "health-education", "patient-advocacy", "translation"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "After the patient explainer (patient-explainer-020) has been fully signed off by both an oncologist and a patient advocate, translations can be commissioned to reach non-English-speaking patients and advocates. This task is strictly gated: it must not begin until patient-explainer-020 is shipped (both sign-offs on file, 'not medical advice' framing confirmed). Each translation must preserve the 'not medical advice' notice and must not introduce new medical or legal claims. High risk (riskTier:high) because patient-facing content with 'not medical advice' notice must be preserved accurately across languages. Each translation should ideally have a qualified bilingual reviewer (the target-language equivalent of the oncologist/advocate sign-off, or at minimum a bilingual review by someone familiar with the cancer context).",
+  "objective": "Translate the signed-off patient explainer (patient-explainer-020) into one or more target languages, preserving the 'not medical advice' notice and semantic fidelity, with a named bilingual reviewer sign-off for each language and a committed sign-off artifact — strictly gated on patient-explainer-020 being shipped first.",
+  "acceptanceCriteria": [
+    "This task does not begin until patient-explainer-020 is shipped with both oncologist and advocate sign-offs recorded; the dependency is a hard prerequisite.",
+    "Each translation preserves the 'not medical advice' notice in the target language, verbatim or equivalent, in the same prominent position as the source.",
+    "No new medical claims, prognosis, or treatment guidance are introduced by the translation; the translated content is reviewed against the source for semantic fidelity.",
+    "Each language translation has a bilingual reviewer (ideally a qualified person familiar with the cancer/health context in the target language) and the reviewer is named in a committed sign-off artifact.",
+    "The translated documents are committed alongside the source; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-patient-explainer-020"
+  ],
+  "output": "Committed translations of the patient explainer into one or more target languages, each with the 'not medical advice' notice preserved and a bilingual reviewer sign-off, licensed CC-BY-4.0.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

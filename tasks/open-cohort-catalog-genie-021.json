@@ -1,0 +1,34 @@
+{
+  "id": "open-cohort-catalog-genie-021",
+  "title": "Index AACR Project GENIE (REGISTERED-OPEN) with registration-step documentation",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "AACR Project GENIE is a large pan-cancer registry with open data available through Synapse after a click-through registration (no application, no DUA for the open tier, de-identified aggregate). It is a REGISTERED-OPEN resource and carries license.redistributionAllowed:false (the data redistribution is restricted, but the catalog may independently verify and state descriptive facts about it — index != redistribute). GENIE appears in both Synapse and cBioPortal; per the cross-repository identity rule it is ONE record with two hostingLocations[]. As a REGISTERED-OPEN resource, it requires a mandatory second Access/License/PII sign-off. The registration step must be documented in the record's accessTerms. This is a backlog task that exercises the registered-open tier and badge.",
+  "objective": "Index AACR Project GENIE as a single REGISTERED-OPEN canonical record with both Synapse and cBioPortal as hostingLocations[], redistributionAllowed:false cited and correctly handled by the CI linter, mandatory second Access/License/PII sign-off, and the registration step documented in accessTerms.",
+  "acceptanceCriteria": [
+    "A single canonical record for AACR Project GENIE is authored with accessTier:REGISTERED-OPEN and accessTerms.registrationRequired:true, accessTerms.clickThrough:true, accessTerms.duaRequired:false.",
+    "hostingLocations[] lists both Synapse and cBioPortal as hosting locations with isMirror noted appropriately; identityKeys are set (primaryCustodian:AACR, programOrAccession: the GENIE identifier, generationScope).",
+    "license.redistributionAllowed is set to false with a cited clause; the record is nonetheless indexed because index != redistribute; the CI linter (ci-linter-014) does not reject it on this basis.",
+    "The registration step is documented in the record (which portal to register at, what is required) as a descriptive fact with fieldProvenance.",
+    "Mandatory second Access/License/PII sign-off recorded in the gate artifact (gates/genie.json) as required for REGISTERED-OPEN resources.",
+    "Every field has a fieldProvenance citation; completeness score ≥ 90/100; gate artifact committed; CI green; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "AACR Project GENIE access terms (https://www.aacr.org/professionals/research/aacr-project-genie/)",
+    "GENIE on Synapse (https://www.synapse.org/#!Synapse:syn7222066/wiki/)",
+    "open-cohort-catalog-triage-009",
+    "open-cohort-catalog-ci-linter-014"
+  ],
+  "output": "A committed catalog record (catalog/genie.json) for AACR Project GENIE as a REGISTERED-OPEN entry with gate artifact and registration-step documentation, proving the registered-open tier and redistributionAllowed:false handling are correct.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

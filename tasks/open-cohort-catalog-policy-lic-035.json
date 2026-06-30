@@ -1,0 +1,31 @@
+{
+  "id": "open-cohort-catalog-policy-lic-035",
+  "title": "Catalog-metadata license decision (CC-BY-4.0 vs CC0 for factual fields)",
+  "project": "open-cohort-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "licensing", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The catalog's metadata is authored by contributors; it is not simply copied from sources. The legal theory (PLAN §7) holds that we publish independently-verified factual descriptors plus a citation, not the custodians' copyrighted prose. The open question is whether our own metadata should be licensed CC-BY-4.0 (requiring attribution) or CC0 (waiving all rights, maximizing interoperability). The distinction matters: purely factual fields (aggregate counts, access tier, rights booleans verified from public sources) may be best served by CC0 to maximize reuse; narrative/interpretive fields (rationale, completeness notes) may warrant CC-BY-4.0. This decision must be made before broad publishing begins so the outputLicense field in records is settled. The current default is CC-BY-4.0 with upstream attribution preserved.",
+  "objective": "Record a written, dated governance decision on the catalog-metadata license (CC-BY-4.0 vs CC0 for purely factual fields vs hybrid), grounded in the legal theory for independently-verified factual descriptors, and apply it consistently to the outputLicense field in all catalog records.",
+  "acceptanceCriteria": [
+    "A committed policy document (policy-lic-035.md) records the governance decision: CC-BY-4.0 for all metadata, CC0 for purely factual fields, or a hybrid approach; the decision is dated and signed off by the Maintainer.",
+    "The document explains the legal theory (independently-verified factual descriptors + citation, not the custodian's prose) and why the chosen license applies.",
+    "If a hybrid approach is chosen, the document defines exactly which fields are CC0 (purely factual) and which are CC-BY-4.0 (interpretive/narrative), and how this is serialized in the record schema.",
+    "The decision is applied consistently across all catalog records' outputLicense fields; records generated before this decision are updated.",
+    "Output document licensed CC-BY-4.0 (the policy document itself); DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog PLAN.md §7 (legal theory for our metadata; CC-BY vs CC0 open question)",
+    "Creative Commons CC-BY-4.0 and CC0 1.0 Universal deed summaries"
+  ],
+  "output": "A committed policy document (policy-lic-035.md) recording the governance decision on catalog-metadata licensing (CC-BY-4.0 vs CC0), with rationale and the field-level application rule, settling the outputLicense default for all catalog records.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

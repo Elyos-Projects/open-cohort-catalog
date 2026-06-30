@@ -1,0 +1,28 @@
+{
+  "id": "open-cohort-catalog-reviewer-002",
+  "title": "Name/secure the Access/License/PII reviewer (blocking, non-skippable gate role)",
+  "project": "open-cohort-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "governance", "metadata"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every per-cohort indexing task in this project is gated behind a mandatory Access/License/PII reviewer who confirms: (1) the access tier is correct (zero tolerance for false-open), (2) every license-rights boolean is cited, and (3) the cohort is de-identified/aggregate with no identifiable or controlled data in scope. This role must be filled before the M0 pilot cohort is reviewed — it is a hard prerequisite, not a parallel hire. Without a named qualified reviewer, all indexing halts. The role may rotate among ≥ 2 qualified people to avoid bottleneck, but ≥ 1 must exist at all times.",
+  "objective": "Identify and secure a named Access/License/PII reviewer (or a rotation of ≥ 2 qualified reviewers) who can read genomic-data-sharing policies, interpret open-data licenses (SPDX/CC/OGL + custom NC terms like COSMIC/OncoKB), and reason about de-identification and access tiers; document the role, its responsibilities, the acceptance criteria for the person filling it, and the escalation path if the role becomes vacant.",
+  "acceptanceCriteria": [
+    "A named individual (or rotation of ≥ 2 named individuals) is recorded in the project governance doc as the Access/License/PII reviewer with their contact and a confirmation that they have accepted the role.",
+    "The governance doc defines the reviewer's responsibilities: confirming access tier (zero tolerance for false-open), verifying each license-rights boolean is cited from primary source text, confirming de-identification/aggregate status and no identifiable/controlled data in scope, and mandatory second-sign-off for every REGISTERED-OPEN or mixed-tier record.",
+    "The governance doc defines the qualifications required: ability to read genomic-data-sharing policies, open-data licenses (SPDX/CC/OGL + custom NC terms), and reason about de-identification/identifiability.",
+    "An escalation path is documented for the case when the role becomes vacant (indexing halts until a qualified replacement is named).",
+    "The role is filled before the M0 pilot cohort (pilot-007) is submitted for review; the blocking dependency is explicitly recorded.",
+    "Output is committed as a document (e.g. GOVERNANCE.md or a section in the project README); DCO signed-off."
+  ],
+  "output": "A committed governance document naming the Access/License/PII reviewer(s), defining the role responsibilities and qualifications, and specifying the escalation path if the role becomes vacant.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

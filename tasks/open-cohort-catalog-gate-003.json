@@ -1,0 +1,33 @@
+{
+  "id": "open-cohort-catalog-gate-003",
+  "title": "Access-tier + license + PII triage checklist (blocking gate)",
+  "project": "open-cohort-catalog",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "metadata", "governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before any cohort can be indexed in this catalog, it must pass a mandatory, non-skippable access-tier + license + PII gate. The gate encodes the access-tier decision table (from PLAN §7): only OPEN, OPEN-AGGREGATE, and REGISTERED-OPEN cohorts are indexable; CONTROLLED resources are excluded (pointer only in the excluded-resources register); NON-COMMERCIAL/custom-terms resources (COSMIC, OncoKB) are flagged for a governance decision per policy-nc-034. Each gate run produces a committed artifact (gates/<cohort-id>.json) recording PASS/FLAG/EXCLUDE with the checks that ran and what fired. This task depends on schema-001 having defined the access-tier taxonomy and license-rights model; it depends on reviewer-002 for the reviewer who will sign off.",
+  "objective": "Produce a per-cohort access-tier + license + PII gate checklist and artifact schema that encodes the access-tier decision table (OPEN/OPEN-AGGREGATE/REGISTERED-OPEN → PASS; NON-COMMERCIAL → FLAG; CONTROLLED → EXCLUDE), the license-rights verification steps (each boolean cited from primary source), the PII/identifiability check, and the format for the committed gate artifact (gates/<cohort-id>.json) that every indexing task must produce before authoring a record.",
+  "acceptanceCriteria": [
+    "Checklist encodes the access-tier decision table: OPEN | OPEN-AGGREGATE | REGISTERED-OPEN → PASS (with noted conditions); NON-COMMERCIAL/custom-terms → FLAG → policy-nc-034; CONTROLLED/identifiable → EXCLUDE → excluded-resources register.",
+    "License step requires: record the license id + URL; take and commit a snapshot (text copy + SHA-256 + Wayback save URL); verify and record each rights boolean (permitsReuse, permitsDerivatives, commercialUseAllowed, redistributionAllowed, attributionRequired, shareAlike) from a cited clause in the primary source text; missing/unparseable license = FLAG/EXCLUDE.",
+    "PII/identifiability step: confirm the cohort is de-identified/aggregate; confirm only cohort-level descriptors are extracted; halt-and-discard and EXCLUDE on any identifiable or controlled signal; the catalog never de-identifies, links, or aggregates patient data itself.",
+    "NC/custom sources (COSMIC, OncoKB) are routed to FLAG → policy-nc-034, never default-included.",
+    "Every REGISTERED-OPEN or mixed-tier candidate requires a mandatory second Access/License/PII sign-off (100%, not sampled).",
+    "Each gate run produces a committed, reviewable artifact at gates/<cohort-id>.json recording: cohort id, date, reviewer, checks run, result (PASS/FLAG/EXCLUDE), disqualifying reason (if any), and the rights booleans with cited clauses (if PASS).",
+    "The checklist document and artifact schema are licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog PLAN.md §7 (access-tier taxonomy and source classification)",
+    "open-cohort-catalog-schema-001 (access-tier enum and license-rights model)"
+  ],
+  "output": "A committed gate checklist document (checklist.md or similar) encoding the access-tier decision table and the license + PII verification steps, plus a JSON schema for the per-cohort gate artifact (gates/<cohort-id>.json), ready for the reviewer to apply to every candidate cohort.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

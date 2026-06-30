@@ -1,0 +1,33 @@
+{
+  "id": "open-cohort-catalog-reuse-018",
+  "title": "Track and verify external reuse/adoption events",
+  "project": "open-cohort-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "community", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The project's 'delivered' condition requires externally verifiable reuse events — not self-reported use. The Steward records each accepted outcome in outcomes/*.json with: channel, URL/permalink, timestamp, and completeness score. Self-reported use does not count; each event must be externally verifiable (a citation, a linking page, a fork/PR, a documented query from a named group). The M3 target is ≥ 3 verifiable external reuse events. Depends on the M1 indexing tasks (a published record corpus) and the confirmed adopter (adopter-012).",
+  "objective": "Identify, verify, and record ≥ 3 externally verifiable reuse events for the catalog (citations, cross-links, fork/PR, or documented queries from named groups) in committed outcomes/*.json files reviewed by the Steward, satisfying the project's 'delivered' condition.",
+  "acceptanceCriteria": [
+    "At least 3 verifiable external reuse events are identified and recorded in committed outcomes/*.json files; each event links to external evidence (not self-report).",
+    "Accepted event types: a citation in a paper or preprint with a DOI/URL; a cross-link or embedded reference on an organization's website; a fork or PR from an external contributor; a documented query or use request from a named research group or advocacy organization.",
+    "Each outcome file records: event type, external organization/author name, evidence URL/permalink, date observed, which catalog record(s) were involved, and a brief description of the reuse.",
+    "Events are reviewed by the Steward (from adopter-012); self-reported use without external evidence is not accepted.",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-index-010",
+    "open-cohort-catalog-index-011",
+    "open-cohort-catalog-index-015",
+    "open-cohort-catalog-adopter-012"
+  ],
+  "output": "≥ 3 committed outcomes/*.json files recording verifiable external reuse events, each with external evidence URLs, reviewed by the Steward.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

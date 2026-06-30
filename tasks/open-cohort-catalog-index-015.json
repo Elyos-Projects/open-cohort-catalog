@@ -1,0 +1,36 @@
+{
+  "id": "open-cohort-catalog-index-015",
+  "title": "Index cohort set #3 — DepMap + Cell Model Passports + ICGC/PCAWG open",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "The third cohort set covers three distinct sources: (1) DepMap (Broad Institute) — cell-line dependency and omics data, CC-BY-4.0, entryType:cell-model-collection (counts are cell lines/models, NOT patients); (2) Cell Model Passports (Sanger Institute) — cell-line metadata, open license to be verified at gate; (3) ICGC/PCAWG open-access tier — international cancer genomics consortium open data (controlled tier excluded). DepMap may have been indexed as the pilot (pilot-007); if so, the pilot record is refined and additional DepMap releases are treated as version updates per the identity rule. The CI publish-gate linter (ci-linter-014) must be passing before this work is merged. Depends on triage-009 and ci-linter-014.",
+  "objective": "Index DepMap (entryType:cell-model-collection, CC-BY-4.0), Cell Model Passports (license gate-verified), and ICGC/PCAWG open-access tier (controlled tier explicitly excluded) as distinct canonical records with gate artifacts, correct entryType/aggregateCounts, identity dedup, and oncology-data reviewer sign-off — with CI green via ci-linter-014.",
+  "acceptanceCriteria": [
+    "DepMap is indexed as entryType:cell-model-collection; aggregateCounts reflects cell lines and models (not patients); CC-BY-4.0 license cited and rights booleans verified from the DepMap license page.",
+    "Cell Model Passports (Sanger) is indexed; license verified at gate from primary source text (not assumed open); gate artifact committed.",
+    "ICGC/PCAWG open-access tier is indexed; the ICGC controlled tier (individual-level genomic data) is explicitly excluded and noted in the record with a pointer to the exclusion register.",
+    "Each record gate-passed (gate-003 artifact committed); every field has a fieldProvenance citation; completeness score ≥ 90/100.",
+    "identityKeys set and cross-repository dedup applied (DepMap appears in multiple portals; PCAWG data accessible via ICGC, GDC, and DACO — one record per distinct cohort with hostingLocations[]).",
+    "Cancer types coded (OncoTree + NCIt/ICD-O-3); oncology-data reviewer signs off on coding and de-identification basis (especially for cell-line resources).",
+    "CI green (ci-linter-014 passing); license snapshots recorded; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-triage-009",
+    "open-cohort-catalog-ci-linter-014",
+    "DepMap CC-BY-4.0 license (https://depmap.org/portal/)",
+    "Cell Model Passports (https://cellmodelpassports.sanger.ac.uk/)",
+    "ICGC/PCAWG open data access (https://daco.icgc-argo.org/)"
+  ],
+  "output": "Committed catalog records (catalog/*.json) for DepMap, Cell Model Passports, and ICGC/PCAWG open tier with gate artifacts, fully cited, schema-valid, CI-green, licensed CC-BY-4.0.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

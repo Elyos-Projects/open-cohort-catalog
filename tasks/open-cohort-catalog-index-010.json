@@ -1,0 +1,35 @@
+{
+  "id": "open-cohort-catalog-index-010",
+  "title": "Index cohort set #1 — GDC open tier (TCGA + TARGET + CPTAC open)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "The NCI Genomic Data Commons (GDC) hosts multiple large cancer genomics programs with both open and controlled access tiers. The open tier includes: TCGA (open-access somatic mutation calls and clinical summaries, not germline or BAMs which are controlled), TARGET (pediatric), and CPTAC (open proteogenomics). Each program is a distinct cohort identity (separate identityKeys) even though they share the GDC portal as a hostingLocation. Mixed-tier resources (TCGA has both open and controlled) must be indexed for the open portion only with governanceFlags: ['mixed-tier-open-portion-only']. Each record requires its own gate artifact and all Access/License/PII reviewer sign-offs. Depends on pilot-007 (end-to-end proven) and triage-009 (gate dispositions exist).",
+  "objective": "Index the GDC open-tier cohort programs (TCGA open, TARGET, CPTAC open) as distinct canonical records with gate artifacts, fully cited fields, correct entryType and conditional aggregateCounts, identity dedup applied across portals (GDC/cBioPortal/Xena), and oncology-data reviewer sign-off on cancer-type coding and de-identification basis.",
+  "acceptanceCriteria": [
+    "Each GDC open-tier cohort (TCGA open, TARGET open, CPTAC open — treated as distinct canonical cohorts with distinct identityKeys) has a gate-passed record with a committed gates/<cohort-id>.json artifact (PASS, access tier OPEN, license rights cited).",
+    "Mixed-tier resources (TCGA: open somatic data vs controlled germline/BAMs) have governanceFlags: ['mixed-tier-open-portion-only'] and the controlled portions are explicitly named as out of scope in the record.",
+    "Every record field carries a fieldProvenance citation (source URL, retrieval date, specific claim); completeness score ≥ 90/100 for each record.",
+    "identityKeys are set (primaryCustodian: NCI/GDC, programOrAccession, generationScope); hostingLocations[] records all portal appearances (GDC, cBioPortal, UCSC Xena where applicable) without creating duplicate records.",
+    "Cancer types coded with OncoTree primary codes and NCIt/ICD-O-3 cross-references; oncology-data reviewer signs off on coding and de-identification basis.",
+    "License snapshot recorded (committed text copy + SHA-256 + Wayback URL) for each cohort's terms.",
+    "Records pass schema validator and citation resolver; CI green; outputLicense CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-pilot-007",
+    "open-cohort-catalog-triage-009",
+    "NCI GDC data access tiers (https://gdc.cancer.gov/access-data/data-access-processes-and-tools)",
+    "TCGA open-access data description; TARGET project; CPTAC data portal"
+  ],
+  "output": "Committed catalog records (catalog/*.json) for GDC open-tier cohorts (TCGA open, TARGET, CPTAC open) with gate artifacts, fully cited, schema-valid, CI-green, licensed CC-BY-4.0.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

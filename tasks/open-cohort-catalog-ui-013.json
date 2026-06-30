@@ -1,0 +1,34 @@
+{
+  "id": "open-cohort-catalog-ui-013",
+  "title": "Static, dataless search/browse UI (faceted; metadata-only)",
+  "project": "open-cohort-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "The catalog's searchability is one of its core value propositions. The UI must be a static, client-side site that indexes catalog metadata only — no backend data store, no tracking, no patient data. The search index is pre-built over the catalog JSON. It must be faceted by cancer type, repository, access tier, license, and entryType (the typed field distinguishing patient-cohort from cell-model-collection from population-statistics from molecular-dataset). REGISTERED-OPEN and NON-COMMERCIAL (if any) records must carry a prominent access badge. CONTROLLED records must never appear (the catalog has none). Depends on schema-001 (for the catalog record shape) and the M1 indexing tasks (for a corpus to build the UI over).",
+  "objective": "Build a static, client-side search/browse site over the catalog JSON records, faceted by cancer type, repository, access tier, license, and entryType, with prominent access badges for REGISTERED-OPEN and NON-COMMERCIAL records, no backend, no tracking, and no patient data exposure.",
+  "acceptanceCriteria": [
+    "A static, client-side search/browse site is built over the catalog JSON records; no backend server, no database, no user-tracking, no cookies beyond functional state.",
+    "Search is faceted by: cancer type (using OncoTree/NCIt codes and free-text name), hosting repository, access tier (OPEN | OPEN-AGGREGATE | REGISTERED-OPEN), license, and entryType.",
+    "REGISTERED-OPEN records carry a prominent 'Registration required' badge; NON-COMMERCIAL records (if admitted per policy-nc-034) carry a prominent 'Non-commercial use only' badge; CONTROLLED records never appear.",
+    "The UI exposes only cohort-level metadata (no per-patient data, no row-level data, no patient identifiers, no clinical outcomes beyond aggregate counts).",
+    "The site builds from the catalog JSON in the repository without a network call to any external data source at runtime; catalog JSON is the single source of truth.",
+    "pnpm build && pnpm test && pnpm lint green; code is MIT-licensed; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog-index-010",
+    "open-cohort-catalog-index-011",
+    "open-cohort-catalog PLAN.md §6 (static, dataless UI)"
+  ],
+  "output": "A committed static search/browse UI (MIT) over the catalog JSON, faceted by cancer type/repository/access tier/license/entryType, with prominent access badges for REGISTERED-OPEN and NON-COMMERCIAL records, and no patient data or tracking.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

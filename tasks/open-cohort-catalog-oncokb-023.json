@@ -1,0 +1,31 @@
+{
+  "id": "open-cohort-catalog-oncokb-023",
+  "title": "OncoKB disposition record (NON-COMMERCIAL flag per policy-nc-034)",
+  "project": "open-cohort-catalog",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer-research", "open-science", "metadata", "licensing"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "OncoKB (MSK) is a major cancer mutation annotation knowledge base but carries proprietary terms: an academic/research license with restrictions; commercial use is restricted; redistribution is restricted. Under policy-nc-034, OncoKB is flagged NON-COMMERCIAL and must not be auto-included. This task creates a disposition record for OncoKB: not a full catalog record, but a documented disposition explaining the access tier, the NC terms, the policy-nc-034 governance decision applied, and the correct researcher access path. Analogous to cosmic-022 but for a different resource with different terms.",
+  "objective": "Produce a committed OncoKB disposition document applying the policy-nc-034 governance decision, citing the OncoKB terms of use, specifying the NON-COMMERCIAL badge and governanceFlags value, and recording the correct researcher access path for academic and commercial licensing.",
+  "acceptanceCriteria": [
+    "A committed OncoKB disposition document records: resource name, custodian (MSK), access tier (NON-COMMERCIAL), license terms summary with cited source (OncoKB terms page), the policy-nc-034 governance decision applied, and the outcome (pointer-only or include-with-flag per the decided policy).",
+    "The document states the correct access path for researchers who need OncoKB: the academic license registration URL and the commercial licensing contact.",
+    "If policy-nc-034 decides 'pointer-only,' the document is a register entry only; if 'include-with-flag,' a record with accessTier:NON-COMMERCIAL and governanceFlags:['nc-license'] and governance-decision reference is created.",
+    "The governanceFlags value and NON-COMMERCIAL badge value from policy-nc-034 are used consistently.",
+    "Output licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-policy-nc-034",
+    "OncoKB terms of use (https://www.oncokb.org/terms)"
+  ],
+  "output": "A committed OncoKB disposition document applying the policy-nc-034 governance decision, recording access tier, terms, and the correct researcher access path.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

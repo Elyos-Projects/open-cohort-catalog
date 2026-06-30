@@ -1,0 +1,36 @@
+{
+  "id": "open-cohort-catalog-triage-009",
+  "title": "Triage 10 candidate cohorts through the gate",
+  "project": "open-cohort-catalog",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer-research", "open-science", "metadata", "data-curation"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "With the gate checklist (gate-003), NC policy (policy-nc-034), and pilot record (pilot-007) in place, M1 calls for triaging 10 distinct candidate cohorts through the gate to build the first credible set of PASS/FLAG/EXCLUDE dispositions. Candidate cohorts are drawn from the candidate shortlist (outreach-006) and include seeds from cBioPortal public studies (which mirror cohorts hosted elsewhere — apply the identity rule), GDC non-TCGA open programs, GEO, EMBL-EBI, DepMap, GENIE, and aggregate stats sources. COSMIC and OncoKB are routed per policy-nc-034. Every REGISTERED-OPEN or mixed-tier candidate requires a mandatory second Access/License/PII sign-off. Controlled/identifiable candidates are EXCLUDED and routed to the excluded-resources register.",
+  "objective": "Apply the gate-003 checklist to 10 distinct candidate cohorts (deduped per the identity rule) from the outreach-006 shortlist, producing a committed gate artifact (PASS/FLAG/EXCLUDE) for each, with mandatory second sign-off on every REGISTERED-OPEN or mixed-tier candidate, ready to feed the M1 indexing tasks.",
+  "acceptanceCriteria": [
+    "Ten distinct cohorts (deduped per the cross-repository identity rule — a cohort in multiple portals counts once) are evaluated; each has a committed gate artifact (gates/<cohort-id>.json) recording PASS/FLAG/EXCLUDE with the checks that ran and what fired.",
+    "Each PASS artifact records: license id/URL/snapshot reference, each rights boolean with a cited clause, access tier, PII check result, and reviewer sign-off.",
+    "Each FLAG/EXCLUDE artifact records the disqualifying reason: controlled tier, undocumented de-identification, NC terms (routed to policy-nc-034), or other.",
+    "Every REGISTERED-OPEN or mixed-tier candidate has a mandatory second independent Access/License/PII sign-off (100%, not sampled) recorded in the gate artifact.",
+    "Any controlled/identifiable candidate is EXCLUDED and a pointer entry is added to the excluded-resources register (exclude-005); no controlled resource is given a record.",
+    "cBioPortal public studies in the candidate pool are deduplicated against their upstream sources (GDC, Synapse, etc.) per the identity rule; the dedup decision is noted in the gate artifact.",
+    "COSMIC and OncoKB are dispositioned per policy-nc-034; their gate artifacts record the policy reference.",
+    "Output (ten gate artifacts + a triage summary document) licensed CC-BY-4.0; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-gate-003",
+    "open-cohort-catalog-policy-nc-034",
+    "open-cohort-catalog-outreach-006 (candidate shortlist)",
+    "open-cohort-catalog PLAN.md §7 (source classification)"
+  ],
+  "output": "Ten committed gate artifacts (gates/<cohort-id>.json) with PASS/FLAG/EXCLUDE dispositions and a triage summary document, ready to feed the M1 indexing tasks (index-010, index-011).",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "open-cohort-catalog-validator-004",
+  "title": "Schema validator + citation/link resolver (golden fixtures, CI)",
+  "project": "open-cohort-catalog",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer-research", "open-science", "metadata", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Catalog records must be validated against the canonical schema (schema-001) before publication; citations and URLs must resolve; and the access-tier consistency rules must be enforced in CI. This tooling is the technical enforcement layer for the access-tier + license + PII gate: it rejects records with forbidden access-tier values (CONTROLLED/NON-COMMERCIAL) in published records, rejects rights booleans without fieldProvenance entries, and rejects OPEN-tier records with duaRequired:true. The validator ships with committed synthetic-only golden fixtures (no real cohort data in fixtures) that exercise both pass and fail paths. pnpm build && pnpm test && pnpm lint must be green. Depends on schema-001.",
+  "objective": "Build a Node/TypeScript schema validator and citation/link resolver that enforces the catalog's access-tier rules in CI: rejecting CONTROLLED/NON-COMMERCIAL records, rights booleans lacking fieldProvenance, and OPEN records with duaRequired:true — while correctly accepting REGISTERED-OPEN records with redistributionAllowed:false — and ship it with committed synthetic-only golden fixtures.",
+  "acceptanceCriteria": [
+    "Validates records against the schema-001 JSON Schema; rejects records missing required fields, with wrong types, or with structural violations.",
+    "Rejects any published record with accessTier CONTROLLED or NON-COMMERCIAL (unless a governance-decision reference is attached per policy-nc-034).",
+    "Rejects any record with a rights boolean (permitsReuse, permitsDerivatives, commercialUseAllowed, redistributionAllowed, attributionRequired, shareAlike) that lacks a corresponding fieldProvenance entry.",
+    "Rejects any OPEN-tier record carrying accessTerms.duaRequired: true.",
+    "Does NOT reject a record merely for license.redistributionAllowed: false; a golden fixture asserts this (index != redistribute; GENIE is a valid REGISTERED-OPEN index entry).",
+    "Citation resolver checks every fieldProvenance[].sourceUrl and license.url resolves (HTTP 2xx or 3xx); mocked in CI to avoid network calls; dead/missing citations fail.",
+    "Ships committed synthetic-only golden fixtures: at least one valid-pass record (with all required fields and provenance) and at least one malformed-fail record per rejection rule above; no real cohort data in any fixture.",
+    "pnpm build && pnpm test && pnpm lint green; code is MIT-licensed; DCO signed-off."
+  ],
+  "resources": [
+    "open-cohort-catalog-schema-001",
+    "open-cohort-catalog PLAN.md §8 (quality, review & risk gates)"
+  ],
+  "output": "A Node/TypeScript package (MIT) implementing the schema validator and citation/link resolver, with synthetic golden fixtures, integrated into CI so pnpm test catches any access-tier, rights, or citation violation before merge.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
